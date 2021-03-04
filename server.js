@@ -16,15 +16,16 @@ mongoose.connect( process.env.MONGODB_URI || "mongodb://localhost/workout", {
 app.use(morgan("dev"));
 
 //post request middlewares
-app.use(express.urlencoded({ extended: true }))
-// app.use
+app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
 
 //static folder
+app.use(express.static("public"));
 
 //routes
-app.get("/", (req, res)=>{
-  console.log("Hello dude, I'm connected")
-})
+// app.get("/", (req, res)=>{
+//   res.send("server.js :26 log connected")
+// })
 
 app.listen(PORT, ()=> {
   console.log(`You're up and running on port ${PORT}`);
