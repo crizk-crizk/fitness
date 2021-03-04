@@ -1,1 +1,8 @@
-README.md
+node_modules
+
+instructions.txt
+
+mongodb cloud - enter it in heroku config pairs
+  MONGODB_URI 
+  mongodb+srv://carolinamMongo:1234qwer@cluster0.ssazs.mongodb.net/myFirstDatabase?retryWrites=true&w=majority
+
