@@ -7,7 +7,7 @@ const PORT = process.env.PORT || 4000;
 const app = express();
 
 //connect to mongoose
-mongoose.connect( process.env.MONGODB_URI || "mongodb://localhost/workout", {
+mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/workout", {
   useNewUrlParser: true,
   useFindFindAndModify: false,
 });
@@ -23,10 +23,12 @@ app.use(express.json());
 app.use(express.static("public"));
 
 //routes
-// app.get("/", (req, res)=>{
-//   res.send("server.js :26 log connected")
-// })
+const htmlRoutes = require("./routes/html-routes.js");
+const apiRoutes = require("./routes/api-routes.js");
 
-app.listen(PORT, ()=> {
+htmlRoutes(app);
+apiRoutes(app);
+
+app.listen(PORT, () => {
   console.log(`You're up and running on port ${PORT}`);
-})
+});
