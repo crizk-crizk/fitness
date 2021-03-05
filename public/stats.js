@@ -1,3 +1,4 @@
+//given code 
 function generatePalette() {
   const arr = [
     '#003f5c',

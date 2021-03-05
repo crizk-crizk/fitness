@@ -1,3 +1,4 @@
+//work in progress
 const db = require("../models");
 
 module.exports = (app) => {
@@ -10,7 +11,7 @@ module.exports = (app) => {
   });
 
   app.put("/api/workouts/:id", (req, res) => {
-    db.Workout.findOneAndUpdate({ id }, req.body).then((dbWorkout) => {
+    db.Workout.findOneAndUpdate({ _id: mongojs.ObjectId(params.id) }, req.body).then((dbWorkout) => {
       res.json(dbWorkout);
     });
   });
