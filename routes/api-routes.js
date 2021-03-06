@@ -1,4 +1,3 @@
-//work in progress
 const db = require("../models");
 
 module.exports = (app) => {
