@@ -18,7 +18,6 @@ app.use(morgan("dev"));
 //post request middlewares
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
-
 //static folder
 app.use(express.static("public"));
 
