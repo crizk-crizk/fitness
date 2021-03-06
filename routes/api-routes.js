@@ -11,7 +11,15 @@ module.exports = (app) => {
 
   app.get("/api/workouts/range", (req, res) => {
     console.log("GET workouts");
-    db.Workout.find({}).then((dbWorkout) => {
+    let startDate = new Date().setDate(new Date().getDate() -7);
+    //https://mongoosejs.com/docs/queries.html
+    let endDate = new Date();
+    db.Workout.find({
+      day: {
+        $gte: startDate,
+        $lte: endDate
+      }
+    }).then((dbWorkout) => {
       res.json(dbWorkout);
     });
   });
@@ -53,7 +61,6 @@ module.exports = (app) => {
   //create
   app.post("/api/workouts", async (req, res) => {
     const newWorkout = new db.Workout({
-      day: new Date().setDate(new Date().getDate() - 9),
       exercises: [],
     });
     const createdWorkout = await newWorkout.save();
