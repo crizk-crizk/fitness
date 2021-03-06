@@ -37,7 +37,7 @@ module.exports = (app) => {
       "distance": distance,
     };
     try {
-      const workout = await db.Workout.findByIdAndUpdate(
+      const updatedWorkout = await db.Workout.findByIdAndUpdate(
         id,
         { $push: { "exercises": newExercise } },
         { upsert: true, new: true }
